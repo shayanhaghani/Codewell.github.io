@@ -1,12 +1,47 @@
+/* START AutoPreFixer For FlexBox */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+.wrapper {
+  @include flexbox();
+}
+
+.item {
+  @include flex(1 200px);
+  @include order(2);
+}
+
+/* END AutoPreFixer For FlexBox */
+
 * {
   box-sizing: border-box;
 }
 
 body, html {
-  font-family:	Roboto;
+  font-family:  Roboto;
   height: 100%;
   background-image: url("../images/Background.png");
-  min-height: 700px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,65 +49,61 @@ body, html {
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 110px; }
 
-.container {
-	width: 46%;
-    height: 63%;
-    position: relative;
-    margin-left: 50px;
-}
-	
-
-.child {
-	position: relative;
-    top: 45%;
-    left: 50%;
-    margin: -55px 0px 0px 0px;
-}
-
-.right {
-	background-color: #ffffff;
-	width: 50%;
-	height: 100%;
-	float: right;
-	border-radius: 0 10px 10px 0;
-	border: 1px solid #bcbcbc;
-	padding: 0px 30px 0 30px;
+.flex-container > div.left {
+  background-color: #013242;
+  color: black;
+  width: 24%;
+  height: 490px;
+  border-radius: 10px 0px 0px 10px;
+  padding: 28px;
 
 }
 
-.left {
-	background-color: #013242;
-	width: 50%;
-	height: 100%;
-	float: left;
-	border-radius:  10px 0  0 10px;
+.flex-container > div.right {
+  background-color: #ffffff;
+  color: black;
+  width: 24%;
+  height: 490px;
+  border-radius: 0px 10px 10px 0px;
+  border: 1px solid lightgray;
+  padding: 28px;
 }
+ .flex-container > div.left > img {
+  width: 380px;
+  height: auto;
+  margin-top: -99px;
+  margin-left: -44px;
 
-.text {
-	text-align: center;
-	margin-top: 40px;
+  }
 
-}
-.explain {
-	text-align: center;
-	font-size: 1.1rem;
-	margin-top: 30px;
+   .flex-container > div.left > p {
+    text-align: center;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 100;
+    color: #86bfd3;
+  }
+   .flex-container > div.left > h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 26px;
+  }
 
-}
+.flex-container > div.right > h1 {
+    font-size: 26px;
+    margin: 11px 15px;
+  }
+  
 
-
-.text2 {
-	margin-top: 40px;
-    padding-left: 20px;
-    color: #023141;
-}
-.form {
-	margin: 20px;
-}
-
-input[type=text], input[type=password] {
- 	width: 100%;
+  input[type=text], input[type=password] {
+  width: 100%;
     padding: 14px 10px;
     margin: 14px 0;
     display: inline-block;
@@ -80,27 +111,24 @@ input[type=text], input[type=password] {
     border-radius: 7px;
     box-sizing: border-box;
   }
+  .form {
+  margin: 20px;
+}
 
-  .mobile {
-	width: 360px;
-    height: auto;
-    margin-top: -123px;
-    margin-left: -18px;
-  }
 
   .button {
-  	width: 100%;
+    width: 100%;
     padding: 14px 10px;
     margin: 18px 0px;
     background-color: #013242;
     border: 0px solid;
     border-radius: 7px;
     color: #ffffff;
-   	font-size: 17px;
-   	transition: all 0.5s;
-	cursor: pointer;
-   	
-   	
+    font-size: 17px;
+    transition: all 0.5s;
+  cursor: pointer;
+    
+    
   }
 
  
@@ -144,15 +172,16 @@ input[type=text], input[type=password] {
 }
 
 .hyperlink {
-	color: #013242;
-	font-weight: bold;
+  color: #013242;
+  font-weight: bold;
+  display: inline-grid;
+  padding-left: 24px;
 
 }
-
 a {
-	color: #4e4e4e;
+  color: #4e4e4e;
     font-size: 14px;
     font-weight: 100;
     letter-spacing: 1px;
-}
+    display: inline-grid;
 }
